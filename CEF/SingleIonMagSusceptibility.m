@@ -67,9 +67,9 @@ MeanMx = sum(repmat(diag(mx),1,nT) .* Bolzman(CEFval,T),1);
 MeanMy = sum(repmat(diag(my),1,nT) .* Bolzman(CEFval,T),1);
 MeanMz = sum(repmat(diag(mz),1,nT) .* Bolzman(CEFval,T),1);
 
-Chi_VanVleck2   =  [   MeanMx .* MeanMx ./ T; MeanMx .* MeanMy ./ T; MeanMx .* MeanMz ./ T; 
-                       MeanMy .* MeanMx ./ T; MeanMy .* MeanMy ./ T; MeanMy .* MeanMz ./ T;
-                       MeanMz .* MeanMx ./ T; MeanMz .* MeanMy ./ T; MeanMz .* MeanMz ./ T;   ] * kb;
+Chi_VanVleck2   =  [   MeanMx .* MeanMx ./ (T * kb); MeanMx .* MeanMy ./ (T * kb); MeanMx .* MeanMz ./ (T * kb); 
+                       MeanMy .* MeanMx ./ (T * kb); MeanMy .* MeanMy ./ (T * kb); MeanMy .* MeanMz ./ (T * kb);
+                       MeanMz .* MeanMx ./ (T * kb); MeanMz .* MeanMy ./ (T * kb); MeanMz .* MeanMz ./ (T * kb);   ];
                  
 Chi_VanVleck    =  Chi_VanVleck1 - Chi_VanVleck2;                
 
